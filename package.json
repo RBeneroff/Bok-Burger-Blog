@@ -1,0 +1,35 @@
+{
+  "name": "Bok-Burger-Blog",
+  "version": "1.0.0",
+  "description": "Unit 2 Project - burger blog for a friend",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "express-session": "^1.14.1",
+    "hbs": "^4.0.1",
+    "method-override": "^2.3.6",
+    "moment-timezone": "^0.5.5",
+    "mongoose": "^4.6.2",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RBeneroff/Bok-Burger-Blog.git"
+  },
+  "keywords": [],
+  "author": "Rachel Beneroff",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RBeneroff/Bok-Burger-Blog/issues"
+  },
+  "homepage": "https://github.com/RBeneroff/Bok-Burger-Blog#readme"
+}
