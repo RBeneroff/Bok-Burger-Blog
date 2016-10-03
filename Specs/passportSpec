@@ -1,0 +1,10 @@
+# Sign Up
+  - would like this to be hidden somehow? Maybe on a separate page if there's time
+  - for now, put form on homepage in footer
+
+# Log In
+ - in footer put the log in form
+ - username, password
+
+# Database:
+ **make sure database is being updated each time a user is created - logs createdAT for each post -- or this will be another input field

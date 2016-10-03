@@ -1,0 +1,8 @@
+# Index By Restaurants
+- list of all restaurants that have a rated burger
+- alphabetized if possible?? (reach)
+- you can click on each restaurant name and be redirected to the burger's own page
+- {{#if user}} new burger button
+
+
+** All edits/updates/new/delete on individual burger pages will redirect you back to this page once update is complete **

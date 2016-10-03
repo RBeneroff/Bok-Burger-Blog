@@ -1,0 +1,9 @@
+{{#if user}}
+- new button (on index by restaurant page) ==> brings you to new page
+  - form that contains:
+    - name field
+    - restaurant field
+    - rating field
+    - review field
+    - image upload field (is there a better way to get the images than just including a link from a website?) -- is there a way to upload them so that it is perfectly formatted every time?
+  - new burger button (this brings you back to the index BY RESTAURANT page)

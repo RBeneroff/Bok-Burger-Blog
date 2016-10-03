@@ -1,0 +1,13 @@
+# Show Page for each burger
+
+- name of burger
+- name of restaurant
+- rating
+- review
+- image/images (if any - if not, burger logo)
+- link back to homepage
+-  {{#if user}} edit button
+
+
+  What about if there is more than one burger for a restaurant? (reach if time?)
+    - multiple burger's on one page?

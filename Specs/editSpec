@@ -1,0 +1,10 @@
+### {{#if user}}
+- edit button on show page ==> brings you to edit page
+  - form that contains:
+    - update name field
+    - update restaurant field
+    - update rating field
+    - update review field
+  - update burger button (this brings you back to the index BY RESTAURANT page)
+    - if no update was made, bring back to specific burger page
+  - delete burger button
