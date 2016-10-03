@@ -1,0 +1,34 @@
+Unit 2 Project: Bok's Burger Blog ERD
+
+Burger Database:
+  restaurantName: String,
+  burgerName: String,
+  typeOfMeat: String,
+  burgerPic: URL,
+  rating: Number,
+  review: String,
+  postedAt: Date
+
+User Database:
+  username: String,
+  password: String,
+
+Home Page Links:
+  List of all restaurants
+  List of all posts (by image)
+  About page
+  User sign up (bottom of page) -- brings you back to homepage
+  User log in (bottom of page) -- brings you back to homepage
+
+List of Restaurants Links:
+  (name of each restaurant)
+  Links to each post about the burger at that specific restaurant
+  Back button to homepage
+
+List of All Posts
+  (images of every burger)
+  Links to each post about the burger by image instead of restaurant
+  Back button to homepage
+
+About Page
+  (simple page about Bok)
