@@ -33,3 +33,29 @@ List of All Posts
 
 About Page
   (simple page about Bok)
+
+Admin:
+  function requireAdmin() {
+    return function(req, res, next) {
+      User.findOne({ req.body.username }, function(err, user) {
+        if (err) { return next(err); }
+
+        if (!user) {
+          // Do something - the user does not exist
+        }
+
+        if (!user.admin) {
+          // Do something - the user exists but is no admin user
+        }
+
+        // Hand over control to passport
+        next();
+      });
+    }
+  }
+
+  if (req.user.role == "Admin") {
+  // render page here
+} else {
+  // redirect somewhere else
+}
