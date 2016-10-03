@@ -7,7 +7,7 @@ var hbs = require('hbs');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var passport = require('passport');
-// var localStrategy = require('passport-local').Strategy();
+var localStrategy = require('passport-local').Strategy;
 // instantiate new Express app:
 var app = express();
 // define view enginges and middleware:

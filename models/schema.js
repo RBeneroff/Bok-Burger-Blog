@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 
 var BurgerSchema = new Schema({
   restaurantName: String,
-  burgername: String,
+  burgerName: String,
   typeOfMeat: String,
   rating: Number,
   review: String,
