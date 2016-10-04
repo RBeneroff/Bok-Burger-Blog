@@ -8,7 +8,6 @@ var Burger = Schema.Burger
 var User = Schema.User
 var Email = Schema.Email
 
-
 router.get('/', function(req,res) {
   // res.send('Working? HOME');
   res.render('visitor/homepage.hbs');
@@ -34,6 +33,10 @@ router.get('/new', function(req, res) {
   // res.send('Working? NEW NEW');
   res.render('owner/new.hbs');
 });
+
+router.get('/email', function(req, res) {
+  res.render('visitor/email.hbs');
+})
 
 router.get('/:id', function(req, res) {
   // res.send('Working? SHOW BURGER');
