@@ -34,7 +34,10 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 //controllers
-
+var ownersController = require('./controllers/ownersController.js');
+app.use('/owner', ownersController);
+var visitorsController = require('./controllers/visitorsController.js');
+app.use('/visitor', visitorsController);
 
 // save connection to db
 db.on('error', function(err) {
@@ -46,7 +49,8 @@ db.once('open', function() {
 });
 
 // basic root route '/': -- IS THIS RIGHT??
-app.use('/', require('./controllers/ownersController.js'));
+app.use('/', require('./controllers/visitorsController.js'));
+app.use('/new', require('./controllers/ownersController.js'));
 
 // instantiate node server:
 app.listen(3000);
