@@ -4,8 +4,8 @@ var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
 var User = require('../models/user.js');
 var Schema = require('../models/schema.js');
-// var Burger = Schema.Burger
-// var Email = Schema.Email
+var Burger = require('../models/schema.js').Burger;
+var Email = Schema.Email
 
 router.get('/', function(req, res) {
   // res.send('Working? HOME');
@@ -101,9 +101,38 @@ router.get('/about', function(req, res) {
 
 //would like to move this to ownersController
 router.get('/new', function(req, res) {
-  var user = User.findOne({id: req.params.id})
   // res.send('Working? NEW NEW');
-  res.render('visitor/new.hbs', user);
+  User.findOne({_id: req.params.id}).exec()
+  .then(function(user) {
+        console.log(req.user);
+    res.render('visitor/new.hbs', {user: User.findOne({_id: req.params.id})});
+  });
+});
+
+// update burgers
+router.post('/joints', function(req, res) {
+  console.log(req.user);
+  var burgerId = req.params.id;
+  var newBurger = new Burger({
+    restaurantName: req.body.restaurantName,
+    burgerName: req.body.burgerName,
+    eatenOn: req.body.eatenOn,
+    typeOfMeat: req.body.typeOfMeat,
+    rating: req.body.rating,
+    review: req.body.review,
+    burgerPic: req.body.burgerPic
+  });
+  newBurger.save(function(err, newBurger) {
+    console.log(newBurger.burgerName);
+    res.redirect('/joints');
+  });
+
+  // User.findById(req.params.id, function(err, user) {
+  //   user.burgers.push(new Burger({body: req.body.newBurger}))
+  //   user.save(function(err) {
+  //     res.redirect('/joints');
+  //   })
+  // })
 });
 
 router.get('/email', function(req, res) {

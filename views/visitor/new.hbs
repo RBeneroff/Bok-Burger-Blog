@@ -1,18 +1,20 @@
 
 <br>
 <h4>Another Day Another Burger:</h4>
-<form action='/new' method='POST'>
-  <label>Where:</label>
+<form action='/joints' method='POST'>
+  <label for='restaurantName'>Where:</label>
   <input type='text' name='restaurantName'><br><br>
-  <label>When:</label>
-  <input type='date' name='postedAt'><br><br>
-  <label>Name of Burger:</label>
+  <label for='eatonOn'>When:</label>
+  <input type='date' name='eatenOn'><br><br>
+  <label for='burgerName'>Name of Burger:</label>
   <input type='text' name='burgerName'><br><br>
-  <label>Type of Meat:</label>
+  <label for='typeOfMeat'>Type of Meat:</label>
   <input type='text' name='typeOfMeat'><br><br>
-  <label>Rating: Between 1 and 10</label>
+  <label for='rating'>Rating: Between 1 and 10</label>
   <input type='number' name='rating'><br><br>
-  <label>Review:</label>
+  <label for='review'>Review:</label>
   <input type='text' name='review'><br><br>
-  <label>Image:</label>
+  <label for='burgerPic'>Image:</label>
   <input type='url' name='burgerPic'><br><br>
+  <button type='submit' name='addBurger'>Add New Burger</button>
+</form>

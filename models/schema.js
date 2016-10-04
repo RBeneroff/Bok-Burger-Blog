@@ -6,6 +6,7 @@ var Schema = mongoose.Schema;
 var BurgerSchema = new Schema({
   restaurantName: String,
   burgerName: String,
+  eatenOn: Date,
   typeOfMeat: String,
   rating: Number,
   review: String,
@@ -27,6 +28,6 @@ var BurgerModel = mongoose.model('Burger', BurgerSchema);
 var EmailModel = mongoose.model('Email', EmailSchema);
 
 module.exports = {
-  Burger: BurgerModel,
+  Burger : BurgerModel,
   Email: EmailModel
 }

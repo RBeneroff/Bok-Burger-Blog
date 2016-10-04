@@ -1,6 +1,13 @@
 <br>
+<h4>List of Places:</h4>
 <ul>
-  <li>List of places</li>
+  {{#each Burger}}
+  <li>
+    <!-- <a href='/{{burgerId}}'> -->
+      <!-- <span>{{restaurantName}}</span> -->
+      {{restaurantName}}
+  </li>
+  {{/each}}
   </ul>
 
   {{#if user}}
