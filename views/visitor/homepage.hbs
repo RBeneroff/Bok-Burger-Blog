@@ -3,7 +3,7 @@
   <p class='hashtag'>#BoksBurgerList</p>
   {{#if user}}
   <p>Welcome Jayme</p>
-  <form action='/logout?_method=DELETE' method='POST'>
+  <form id='logout' method='POST' action='/logout?_method=DELETE'>
   <button type='submit' name='logout'> Log Out </button>
   </form>
   {{else}}

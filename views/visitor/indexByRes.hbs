@@ -1,11 +1,14 @@
 <br>
 <h4>List of Places:</h4>
+
+{{burger.burgerName}}
+
 <ul>
-  {{#each Burger}}
+  {{#each burger}}
   <li>
     <!-- <a href='/{{burgerId}}'> -->
       <!-- <span>{{restaurantName}}</span> -->
-      {{restaurantName}}
+      {{burgerName}}
   </li>
   {{/each}}
   </ul>
@@ -13,3 +16,7 @@
   {{#if user}}
   <a href='/new'>Add Another Burger<a>
   {{/if}}
+
+<footer>
+  <a id='email' href='/email'>Join the #BokBurgerList email</a>
+</footer>

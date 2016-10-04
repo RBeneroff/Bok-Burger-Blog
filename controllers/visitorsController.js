@@ -7,23 +7,6 @@ var Schema = require('../models/schema.js');
 var Burger = require('../models/schema.js').Burger;
 var Email = Schema.Email
 
-router.get('/', function(req, res) {
-  // res.send('Working? HOME');
-  console.log(req.user);
-  var query = User.find({});
-  query.then(function(users) {
-    res.render('visitor/homepage.hbs', { users: users, user: req.user});
-  })
-  .catch(function(err) {
-    console.log(err)
-  });
-});
-
-// Admin Sign Up page
-router.get('/register', function(req, res) {
-  // res.send('registering');
-  res.render('visitor/adminSignUp.hbs');
-});
 
 //for Admin -- must hard code later
 router.post('/register', function(req, res) {
@@ -78,6 +61,24 @@ var authenticate = function(req, res, next) {
   }
 }
 
+router.get('/', function(req, res) {
+  // res.send('Working? HOME');
+  console.log(req.user);
+  var query = User.find({});
+  query.then(function(users) {
+    res.render('visitor/homepage.hbs', { users: users, user: req.user});
+  })
+  .catch(function(err) {
+    console.log(err)
+  });
+});
+
+// Admin Sign Up page
+router.get('/register', function(req, res) {
+  // res.send('registering');
+  res.render('visitor/adminSignUp.hbs');
+});
+
 // router.get('/joints', function(req, res) {
 //   var user = User.findById({id: req.params.id});
 //     // console.log(req.user);
@@ -113,7 +114,7 @@ router.get('/new', function(req, res) {
 router.post('/joints', function(req, res) {
   console.log(req.user);
   var burgerId = req.params.id;
-  var newBurger = new Burger({
+  var burger = new Burger({
     restaurantName: req.body.restaurantName,
     burgerName: req.body.burgerName,
     eatenOn: req.body.eatenOn,
@@ -122,8 +123,8 @@ router.post('/joints', function(req, res) {
     review: req.body.review,
     burgerPic: req.body.burgerPic
   });
-  newBurger.save(function(err, newBurger) {
-    console.log(newBurger.burgerName);
+  burger.save(function(err, newBurger) {
+    console.log(burger.burgerName);
     res.redirect('/joints');
   });
 
@@ -135,9 +136,13 @@ router.post('/joints', function(req, res) {
   // })
 });
 
+router.get('/burgers', function(req, res) {
+  res.render('visitor/indexByImg.hbs');
+});
+
 router.get('/email', function(req, res) {
   res.render('visitor/email.hbs');
-})
+});
 
 router.get('/:id', function(req, res) {
   // res.send('Working? SHOW BURGER');

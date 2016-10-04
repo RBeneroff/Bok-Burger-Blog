@@ -47,6 +47,16 @@ p {
   src: url('../fonts/CaviarDreams copy.ttf');
 }
 
+#email {
+  display: flex;
+  justify-content: flex-end;
+  background: #231f20;
+  color: white;
+  font-family: Arial Black;
+  font-size: 1.5vh;
+  padding: 2vh;
+}
+
 #login {
   display: flex;
   justify-content: flex-end;
@@ -61,7 +71,7 @@ body {
   font-family: Arial Black;
 }
 
-#email {
+#emailPage {
   text-align: center;
 }
 
