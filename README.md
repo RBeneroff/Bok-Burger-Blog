@@ -4,4 +4,11 @@ Unit 2 Project - burger blog for a friend
 working on:
 - get burger restaurants to show on index by restaurant (handlebars)
 - logout not working
-- create a thank you message when signing up for email list
+
+
+List to do:
+- fill up burgers database (index by Res and index by Img)
+  - format 2 pages
+- about page
+- email list - must submit email, thank you
+- hard code Admin

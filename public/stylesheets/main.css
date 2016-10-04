@@ -3,10 +3,16 @@ header {
   color: white;
 }
 
-p {
+/*p {
   display: flex;
   justify-content: flex-start;
   color: #601a10;
+}*/
+
+.hashtag {
+  text-decoration: none;
+  color: #231f20;
+  margin: 0 0 0 1vw;
 }
 
 .viewport {
@@ -21,6 +27,10 @@ p {
   height: 75vh;
 }
 
+
+#welcome {
+  color:white;
+}
 #logo {
   display: flex;
   justify-content: flex-start;
@@ -57,7 +67,17 @@ p {
   padding: 2vh;
 }
 
-#login {
+#footer1 {
+  display: flex;
+  justify-content: flex-start;
+  background: #231f20;
+  color: white;
+  font-family: Arial Black;
+  font-size: 1.5vh;
+  padding: 2vh;
+}
+
+#footer2 {
   display: flex;
   justify-content: flex-end;
   background: #231f20;
