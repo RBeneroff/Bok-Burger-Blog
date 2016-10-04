@@ -2,9 +2,9 @@
 <footer>
   <p class='hashtag'>#BoksBurgerList</p>
   {{#if user}}
-  <p>Welcome Jayme</p>
+  <p>Welcome {{user.username}}</p>
   <form id='logout' method='POST' action='/logout?_method=DELETE'>
-  <button type='submit' name='logout'> Log Out </button>
+  <input value='Log Out' type='submit' name='logout'>
   </form>
   {{else}}
   <form id='login' method='POST' action='/login'>

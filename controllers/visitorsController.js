@@ -7,7 +7,6 @@ var Schema = require('../models/schema.js');
 var Burger = require('../models/schema.js').Burger;
 var Email = Schema.Email
 
-
 //for Admin -- must hard code later
 router.post('/register', function(req, res) {
   // console.log(req.user);
@@ -20,7 +19,6 @@ router.post('/register', function(req, res) {
     function(err, user) {
       if (err)
         {
-          console.log(User.username);
         return res.status(400).send('Could not register');
         }
         passport.authenticate('local')(req, res, function(){
@@ -110,7 +108,24 @@ router.get('/new', function(req, res) {
   });
 });
 
-// update burgers
+// update/create burgers
+// router.post('/joints', function(req, res) {
+//   console.log(req.user);
+//   var burgerId = req.params.id;
+//   var burger = new Burger({
+//     restaurantName: req.body.restaurantName,
+//     burgerName: req.body.burgerName,
+//     eatenOn: req.body.eatenOn,
+//     typeOfMeat: req.body.typeOfMeat,
+//     rating: req.body.rating,
+//     review: req.body.review,
+//     burgerPic: req.body.burgerPic
+//   });
+//   console.log(burger.burgerName);
+//   burger.save(function(err, burger) {
+//     res.redirect('/joints');
+//   });
+
 router.post('/joints', function(req, res) {
   console.log(req.user);
   var burgerId = req.params.id;
@@ -123,8 +138,8 @@ router.post('/joints', function(req, res) {
     review: req.body.review,
     burgerPic: req.body.burgerPic
   });
-  burger.save(function(err, newBurger) {
-    console.log(burger.burgerName);
+  console.log(burger.burgerName);
+  burger.save(function(err, burger) {
     res.redirect('/joints');
   });
 
@@ -146,7 +161,11 @@ router.get('/email', function(req, res) {
 
 router.get('/:id', function(req, res) {
   // res.send('Working? SHOW BURGER');
-  res.render('visitor/show.hbs');
+  Burger.findById(req.params.id, function(err, burger) {
+    res.render('visitor/show.hbs', {
+      burger: burger
+    });
+  })
 });
 
 //would like to move this to ownersController
@@ -155,7 +174,18 @@ router.get('/:id/edit', function(req, res) {
   // res.render('visitor/_____/edit.hbs');
 });
 
-
+// emai list sign up update
+router.post('/email', function(req, res) {
+  var email = new Email ({
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email
+  });
+  console.log(email.email);
+  email.save(function(err, email) {
+    res.redirect('/joints');
+  });
+});
 
 
 module.exports = router;
