@@ -1,26 +1,97 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
-// var User = require('../models/schems.js').User;
-
+var localStrategy = require('passport-local').Strategy;
+var User = require('../models/user.js');
 var Schema = require('../models/schema.js');
-var Burger = Schema.Burger
-var User = Schema.User
-var Email = Schema.Email
+// var Burger = Schema.Burger
+// var Email = Schema.Email
 
-router.get('/', function(req,res) {
+router.get('/', function(req, res) {
   // res.send('Working? HOME');
-  res.render('visitor/homepage.hbs');
+  console.log(req.user);
+  var query = User.find({});
+  query.then(function(users) {
+    res.render('visitor/homepage.hbs', { users: users, user: req.user});
+  })
+  .catch(function(err) {
+    console.log(err)
+  });
 });
+
+// Admin Sign Up page
+router.get('/register', function(req, res) {
+  // res.send('registering');
+  res.render('visitor/adminSignUp.hbs');
+});
+
+//for Admin -- must hard code later
+router.post('/register', function(req, res) {
+  // console.log(req.user);
+  User.register(
+    new User({
+      username: req.body.username,
+      createdAt: new Date()
+    }),
+    req.body.password,
+    function(err, user) {
+      if (err)
+        {
+          console.log(User.username);
+        return res.status(400).send('Could not register');
+        }
+        passport.authenticate('local')(req, res, function(){
+          res.redirect('/');
+          console.log(req.user);
+        });
+    });
+});
+
+//login for Admin
+router.post('/login', passport.authenticate('local', {failureRedirect: '/'}), function(req, res) {
+  req.session.save(function(err) {
+    if (err) {return next(err);}
+    User.findOne({username: req.session.passport.user}).exec()
+    .then(function(user) {
+      console.log(req.user);
+      res.redirect('/');
+    })
+    .catch(function(err) {
+      console.log('ERROR: ', err);
+    })
+  })
+});
+
+// Admin log out
+router.delete('/logout', function(req, res) {
+  console.log('logged out: ' + req.user);
+  req.logout();
+  res.redirect('/');
+});
+
+// if unauthorized
+var authenticate = function(req, res, next) {
+  if (!req.user || req.user.id != req.params.id) {
+    res.json({status: 401, message: 'unauthorized'})
+  } else {
+    next()
+  }
+}
+
+// router.get('/joints', function(req, res) {
+//   var user = User.findById({id: req.params.id});
+//     // console.log(req.user);
+//   // res.send('Working? JOINTS');
+//     res.render('visitor/indexByRes.hbs', user);
+// });
 
 router.get('/joints', function(req, res) {
+    console.log(req.user);
   // res.send('Working? JOINTS');
-  res.render('visitor/indexByRes.hbs');
-});
-
-router.get('/burgers', function(req, res) {
-  // res.send('Working? BURGERS');
-  res.render('visitor/indexByImg.hbs');
+  User.findOne({_id: req.params.id}).exec()
+  .then(function(user) {
+    res.render('visitor/indexByRes.hbs', {user: User.findOne({_id: req.params.id})});
+  });
 });
 
 router.get('/about', function(req, res) {
@@ -30,8 +101,9 @@ router.get('/about', function(req, res) {
 
 //would like to move this to ownersController
 router.get('/new', function(req, res) {
+  var user = User.findOne({id: req.params.id})
   // res.send('Working? NEW NEW');
-  res.render('owner/new.hbs');
+  res.render('visitor/new.hbs', user);
 });
 
 router.get('/email', function(req, res) {
@@ -46,7 +118,7 @@ router.get('/:id', function(req, res) {
 //would like to move this to ownersController
 router.get('/:id/edit', function(req, res) {
   res.send('Working? EDIT BURGER');
-  // res.render('owner/_____/edit.hbs');
+  // res.render('visitor/_____/edit.hbs');
 });
 
 

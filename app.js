@@ -2,12 +2,14 @@
 var express = require('express');
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/Bok-Burger-Blog');
 var logger = require('morgan');
 var hbs = require('hbs');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
+var User = require('./models/user.js');
 // instantiate new Express app:
 var app = express();
 // define view enginges and middleware:
@@ -18,7 +20,6 @@ app.use(logger('dev'));
 app.use(methodOverride('method'));
 app.use(express.static(__dirname + '/public'));
 // specify mongo db:
-mongoose.connect('mongodb://localhost/Bok-Burger-Blog');
 var db = mongoose.connection;
 //configure sessions & passport-local
 app.use(require('express-session') ({
@@ -26,7 +27,6 @@ app.use(require('express-session') ({
   resave: false,
   saveUninitalized: false
 }));
-var User = require('./models/schema.js').User;
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(User.createStrategy());
@@ -34,8 +34,8 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 //controllers
-var ownersController = require('./controllers/ownersController.js');
-app.use('/owner', ownersController);
+// var ownersController = require('./controllers/ownersController.js');
+// app.use('/owner', ownersController);
 var visitorsController = require('./controllers/visitorsController.js');
 app.use('/visitor', visitorsController);
 
@@ -50,7 +50,7 @@ db.once('open', function() {
 
 // basic root route '/': -- IS THIS RIGHT??
 app.use('/', require('./controllers/visitorsController.js'));
-app.use('/new', require('./controllers/ownersController.js'));
+// app.use('/new', require('./controllers/ownersController.js'));
 
 // instantiate node server:
 app.listen(3000);
