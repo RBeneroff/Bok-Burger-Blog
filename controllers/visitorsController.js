@@ -92,7 +92,7 @@ router.get('/register', function(req, res) {
 //   });
 // });
 
-//index by Res - working on getting if Admin
+//index by Res WORKING CODE
 router.get('/joints', function(req, res) {
   console.log(req.user);
   var user = User.findById({id: req.params.id});
@@ -203,12 +203,27 @@ router.get('/email', function(req, res) {
   res.render('visitor/email.hbs');
 });
 
+// working show page
+// router.get('/:id', function(req, res) {
+//   // res.send('Working? SHOW BURGER');
+//     console.log(req.params.id); //grabs id
+//     // console.log(req.burger.id);
+//   var burger = Burger.findById({_id:req.params.id}, function(err, burger){
+//     res.render('visitor/show.hbs', { burger: burger});
+//   });
+// });
+
+// WORKING show page, with burgers & if Admin
 router.get('/:id', function(req, res) {
-  // res.send('Working? SHOW BURGER');
     console.log(req.params.id); //grabs id
+    var user = User.findById({id: req.params.id});
+    if (req.user) {
+      var test = User.findOne({username: req.user.username});
+    }
     // console.log(req.burger.id);
-  var burger = Burger.findById({_id:req.params.id}, function(err, burger){
-    res.render('visitor/show.hbs', { burger: burger});
+  var burger = Burger.findById({_id:req.params.id},
+    function(err, burger){
+    res.render('visitor/show.hbs', { burger: burger, user: user, test: test});
   });
 });
 
@@ -232,6 +247,10 @@ router.get('/:id', function(req, res) {
 // WORKING UPDATE BURGER ROUTE
 router.put('/:id', function(req, res) {
   console.log(req.params.id);
+  var user = User.findById({id: req.params.id});
+  if (req.user) {
+    var test = User.findOne({username: req.user.username});
+  }
   Burger.findByIdAndUpdate(req.params.id, {
       restaurantName: req.body.restaurantName,
       burgerName: req.body.burgerName,
@@ -241,7 +260,7 @@ router.put('/:id', function(req, res) {
       review: req.body.review,
       burgerPic: req.body.burgerPic
   }, {new: true}, function(err, burger) {
-    res.render('visitor/show', {burger: burger});
+    res.render('visitor/show', {burger: burger, user: user, test: test});
   });
 });
 

@@ -18,4 +18,9 @@ Review: {{burger.review}}
 <br>
 
 <br>
+
+{{#if test}}
 <a href='/{{burger.id}}/edit'>Update Burger<a>
+{{else}}
+<a href='/'>HOME</a>
+{{/if}}

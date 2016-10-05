@@ -10,3 +10,5 @@ List to do:
 - about page
 - email list - thank you
 - hard code Admin
+- image database? how to display images
+- emails working -- goes out every time a new burger goes up
