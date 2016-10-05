@@ -3,6 +3,15 @@ header {
   color: white;
 }
 
+ul {
+  list-style-type: none;
+}
+
+.indexList {
+  text-decoration: none;
+  color: #231f20;
+}
+
 /*p {
   display: flex;
   justify-content: flex-start;

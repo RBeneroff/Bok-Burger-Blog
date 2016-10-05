@@ -86,15 +86,10 @@ router.get('/register', function(req, res) {
 
 // Index by Restaurant
 router.get('/joints', function(req, res) {
-
+  var user = User.find({username: 'test'});
   var burger = Burger.find({}, function(err, burger){
-    res.render('visitor/indexByRes.hbs', { burger: burger});
-  }
-  );
-  // User.findOne({_id: req.params.id}).exec()
-  // .then(function(user) {
-  //   res.render('visitor/indexByRes.hbs', {user: User.findOne({_id: req.params.id}), burger: burger});
-  // });
+    res.render('visitor/indexByRes.hbs', {burger: burger, user: user});
+  });
 });
 
 router.get('/about', function(req, res) {
@@ -168,12 +163,11 @@ router.get('/email', function(req, res) {
 
 router.get('/:id', function(req, res) {
   // res.send('Working? SHOW BURGER');
-  Burger.findById(req.params.id, function(err, burger) {
-    res.render('visitor/show.hbs', {
-      burger: burger
-    });
-  })
+  var burger = Burger.findById({_id:req.params.id}, function(err, burger){
+    res.render('visitor/show.hbs', { burger: burger});
+  });
 });
+
 
 //would like to move this to ownersController
 router.get('/:id/edit', function(req, res) {

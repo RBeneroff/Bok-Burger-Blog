@@ -1,12 +1,12 @@
 <br>
 <h4>List of Places:</h4>
 
-
-
 <ul>
   {{#each burger}}
   <li>
-      {{burgerName}}
+    <a class='indexList' href='/{{_id}}'>
+      <span>{{restaurantName}}</span>
+    </a>
   </li>
   {{/each}}
 </ul>
