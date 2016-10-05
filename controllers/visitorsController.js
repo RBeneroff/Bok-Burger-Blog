@@ -102,7 +102,18 @@ router.get('/joints', function(req, res) {
       // console.log('test var is: ', test);
     }
     // console.log(req.params.id);
-  var burger = Burger.find({}, function(err, burger){
+
+    // var alphabetize = Burger.sort(function(a, b) {
+    //   var nA = a.restaurantName.toUpperCase();
+    //   var nB = b.restaurantName.toUpperCase();
+    //   if (nA < nB)
+    //     return -1;
+    //     else if (nA > nB)
+    //     return 1;
+    //   return 0;
+    // });
+
+  var burger = Burger.find({}, null, {sort: {restaurantName: 1}}, function(err, burger){
     res.render('visitor/indexByRes.hbs', {burger: burger, user: user, test: test});
   });
 });

@@ -2,19 +2,19 @@
 <h4 class='edit-burger'>Edit Burger {{burger.burgerName}}:</h4>
 <form class='edit-burger' method='POST' action='/{{burger.id}}?_method=PUT'>
   <!-- <label>Where:</label> -->
-  <input type='text' name='restaurantName' placeholder="Restaurant Name" value={{burger.restaurantName}}><br><br>
+  <input type='text' name='restaurantName' placeholder="Restaurant Name" value='{{burger.restaurantName}}'><br><br>
   <!-- <label>When:</label> -->
-  <input type='date' name='postedAt' value={{burger.eatenOn}}><br><br>
+  <input type='date' name='postedAt' value='{{burger.eatenOn}}'><br><br>
   <!-- <label>Name of Burger:</label> -->
-  <input type='text' name='burgerName' placeholder="Burger Name" value={{burger.burgerName}}><br><br>
+  <input type='text' name='burgerName' placeholder="Burger Name" value='{{burger.burgerName}}'><br><br>
   <!-- <label>Type of Meat:</label> -->
-  <input type='text' name='typeOfMeat' placeholder="Type Of Meat" value={{burger.typeOfMeat}}><br><br>
+  <input type='text' name='typeOfMeat' placeholder="Type Of Meat" value='{{burger.typeOfMeat}}'><br><br>
   <!-- <label>Rating:</label> -->
-  <input type='number' name='rating' placeholder="Rating between 1 and 10" value={{burger.rating}}><br><br>
+  <input type='number' name='rating' placeholder="Rating between 1 and 10" value='{{burger.rating}}'><br><br>
   <!-- <label>Review:</label> -->
-  <input type='text' name='review' placeholder="Review" value={{burger.review}}><br><br>
+  <textarea id='review-edit' rows='1' cols='26' wrap='hard' type='text' name='review' placeholder="Review Below" value='{{burger.review}}'></textarea><br><br>
   <!-- <label>Image:</label> -->
-  <input type='url' name='burgerPic' placeholder="Image URL" value={{burger.burgerPic}}><br><br>
+  <input type='url' name='burgerPic' placeholder="Image URL" value='{{burger.burgerPic}}'><br><br>
   <button class='button' type='submit' name='updateBurger'>Update Burger</button>
 </form>
 
