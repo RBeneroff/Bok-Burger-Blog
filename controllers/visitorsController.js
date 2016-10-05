@@ -217,6 +217,7 @@ router.get('/:id', function(req, res) {
 //   });
 // });
 
+
 // WORKING UPDATE BURGER ROUTE
 router.put('/:id', function(req, res) {
   console.log(req.params.id);
@@ -233,19 +234,32 @@ router.put('/:id', function(req, res) {
   });
 });
 
-// // delete burger
+// // delete burger --not working
 // router.delete('/:id', function(req, res) {
 //   var burger = Burger.findById({_id:req.params.id}, function(err, burger){
 //     res.redirect('/joints', {burger: burger});
 //   });
 // });
 
+//delete route -- not working
+// router.delete('/:id', function(req, res) {
+//   Burger.findByIdAndRemove(req.params.id,
+//     function(err, burger) {
+//       if (err) console.log(err);
+//       console.log('Burger Deleted');
+//       res.redirect('/joints', {burger: burger});
+//       // res.render('visitor/joints', {burger: burger});
+//   });
+// });
+
+//WORKING delete, just not going to the right page now
 router.delete('/:id', function(req, res) {
   Burger.findByIdAndRemove(req.params.id,
     function(err, burger) {
       if (err) console.log(err);
       console.log('Burger Deleted');
-      res.redirect('/joints', {burger: burger});
+      // res.redirect('/joints', {burger: burger});
+      res.render('visitor/joints', {burger: burger});
   });
 });
 

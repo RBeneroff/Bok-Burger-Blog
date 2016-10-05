@@ -16,11 +16,8 @@
   <label>Image:</label>
   <input type='url' name='burgerPic' value={{burger.burgerPic}}><br><br>
   <button type='submit' name='updateBurger'>Update Burger</button>
+</form>
 
-  <form class="deleteBurger" method='POST' action='/joints?_method=DELETE'>
-      <input type='submit' value='Delete Listing'/>
-  </form>
-
-
-
+<form class="deleteBurger" method='POST' action='/{{burger.id}}?_method=DELETE'>
+    <input type='submit' value='Delete Listing'/>
 </form>
