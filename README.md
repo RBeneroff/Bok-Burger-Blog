@@ -7,6 +7,8 @@ working on:
 
 
 List to do:
+- edit route -- get form showing 
+get if statement for if Admin, show button on index for restaurants
 - fill up burgers database (index by Res and index by Img)
   - format 2 pages
 - about page

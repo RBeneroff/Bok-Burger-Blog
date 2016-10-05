@@ -84,13 +84,30 @@ router.get('/register', function(req, res) {
 //     res.render('visitor/indexByRes.hbs', user);
 // });
 
-// Index by Restaurant
+// Index by Restaurant //WORKING CODE
 router.get('/joints', function(req, res) {
-  var user = User.find({username: 'test'});
+  // if (User.username === 'test') {
+    var test = User.find({username: 'req.user.username'});
+      console.log(test);
+    // }
   var burger = Burger.find({}, function(err, burger){
-    res.render('visitor/indexByRes.hbs', {burger: burger, user: user});
+    res.render('visitor/indexByRes.hbs', {burger: burger, test: test});
   });
 });
+
+router.get('/about', function(req, res) {
+  res.render('visitor/about.hbs');
+});
+
+
+// router.get('/joints', function(req, res) {
+//   var test = User.findOne({username: 'test'})
+//   .then(function() {
+//     var burger = Burger.find({}, function(err, burger){
+//       console.log(test);
+//       res.render('visitor/indexByRes.hbs', {burger: burger, test: test});
+//     })});
+// });
 
 router.get('/about', function(req, res) {
   res.render('visitor/about.hbs');
@@ -163,16 +180,38 @@ router.get('/email', function(req, res) {
 
 router.get('/:id', function(req, res) {
   // res.send('Working? SHOW BURGER');
+    console.log(req.params.id); //grabs id
+    // console.log(req.burger.id);
   var burger = Burger.findById({_id:req.params.id}, function(err, burger){
     res.render('visitor/show.hbs', { burger: burger});
   });
 });
 
-
 //would like to move this to ownersController
 router.get('/:id/edit', function(req, res) {
-  res.send('Working? EDIT BURGER');
-  // res.render('visitor/_____/edit.hbs');
+  // res.send('Working? EDIT BURGER');
+  // console.log(req.params.id);
+  console.log(req.params.id);
+  var burger = Burger.findById({_id:req.params.id}, function(err, burger){
+    res.render('visitor/edit', {burger: burger});
+  });
+});
+
+    // res.render('visitor/' + req.params.id + '/edit', {burger: burger});
+
+router.put('/:id', function(req, res) {
+  console.log(req.params.id);
+  var burger = Burger.findOneAndUpdate(req.params.id, {
+    restaurantName: req.body.restaurantName,
+    burgerName: req.body.burgerName,
+    eatenOn: req.body.eatenOn,
+    typeOfMeat: req.body.typeOfMeat,
+    rating: req.body.rating,
+    review: req.body.review,
+    burgerPic: req.body.burgerPic
+  }, {new: true}, function(err, burger) {
+    res.render('visitor/show', {burger: burger});
+  });
 });
 
 // emai list sign up update
