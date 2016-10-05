@@ -1,8 +1,6 @@
 # Bok-Burger-List
 Unit 2 Project - burger blog for a friend
 
--- edit/delete burger buttons are updating the first burger only. no matter which one you click on
-
 List to do:
 - get if statement for if Admin working
     - on list of restaurants

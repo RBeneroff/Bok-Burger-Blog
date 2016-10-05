@@ -85,20 +85,27 @@ router.get('/register', function(req, res) {
 // });
 
 // Index by Restaurant //WORKING CODE
+// router.get('/joints', function(req, res) {
+//     var test = User.find({username: 'req.user.username'});
+//   var burger = Burger.find({}, function(err, burger){
+//     res.render('visitor/indexByRes.hbs', {burger: burger, test: test});
+//   });
+// });
+
+//index by Res - working on getting if Admin
 router.get('/joints', function(req, res) {
-  // if (User.username === 'test') {
-    var test = User.find({username: 'req.user.username'});
-      // console.log(test);
-    // }
+  if (User.username === 'test') {
+    var user = User.find({username: 'req.user.username'});
+      console.log(user);
+    }
   var burger = Burger.find({}, function(err, burger){
-    res.render('visitor/indexByRes.hbs', {burger: burger, test: test});
+    res.render('visitor/indexByRes.hbs', {burger: burger, user: 'test'});
   });
 });
 
 router.get('/about', function(req, res) {
   res.render('visitor/about.hbs');
 });
-
 
 // router.get('/joints', function(req, res) {
 //   var test = User.findOne({username: 'test'})
