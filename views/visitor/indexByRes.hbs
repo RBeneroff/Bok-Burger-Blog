@@ -1,23 +1,24 @@
-<br>
-<h4>List of Places:</h4>
+<div class='index-by-res'>
+<h2>List of Places:</h2>
 
 <ul>
   {{#each burger}}
   <li>
     <a class='indexList' href='/{{_id}}'>
-      <span>{{restaurantName}}</span>
+      <span id='list-spacing'>{{restaurantName}}</span>
     </a>
   </li>
   {{/each}}
 </ul>
-
+<br>
   {{#if test}}
-  <a href='/new'>Add Another Burger<a>
+  <a class='links' href='/new'>Add Another Burger<a>
   {{else}}
-  <a href='/'>HOME</a>
+  <!-- <a class='links' href='/'>HOME</a> -->
   {{/if}}
 
+</div>
 
 <footer>
-  <a id='email' href='/email'>Join the #BokBurgerList email</a>
+  <a class='links' id='email' href='/email'>Join the #BokBurgerList email</a>
 </footer>

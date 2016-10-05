@@ -1,40 +1,21 @@
 
 <br>
-<h4>Another Day Another Burger:</h4>
-<form action='/joints' method='POST'>
-  <label>Where:</label>
-  <input type='text' name='restaurantName'><br><br>
-  <label>When:</label>
+<h4 class='new-burger'>Another Day Another Burger:</h4>
+<form class='new-burger' action='/joints' method='POST'>
+  <!-- <label>Where:</label> -->
+  <input type='text' name='restaurantName' placeholder="Restaurant Name"><br><br>
+  <!-- <label>When:</label> -->
   <input type='date' name='eatenOn'><br><br>
-  <label>Name of Burger:</label>
-  <input type='text' name='burgerName'><br><br>
-  <label>Type of Meat:</label>
-  <input type='text' name='typeOfMeat'><br><br>
-  <label>Rating: Between 1 and 10</label>
-  <input type='number' name='rating'><br><br>
-  <label>Review:</label>
-  <input type='text' name='review'><br><br>
-  <label>Image:</label>
-  <input type='url' name='burgerPic'><br><br>
-  <button type='submit' name='addBurger'>Add New Burger</button>
+  <!-- <label>Name of Burger:</label> -->
+  <input type='text' name='burgerName' placeholder="Burger Name"><br><br>
+  <!-- <label>Type of Meat:</label> -->
+  <input type='text' name='typeOfMeat' placeholder="Type Of Meat"><br><br>
+  <!-- <label>Rating:</label> -->
+  <input type='number' name='rating' placeholder="Rating between 1 and 10"><br><br>
+  <!-- <label>Review:</label> -->
+  <input id='review' rows='1' cols='26' type='text' name='review' placeholder="Review" wrap='hard'><br><br>
+  <!-- <label>Image:</label> -->
+  <input type='url' name='burgerPic' placeholder="Image URL"><br><br>
+  <button class='button' type='submit' name='addBurger'>Add New Burger</button>
+  <br>
 </form>
-
-<!-- <br>
-<h4>Another Day Another Burger:</h4>
-<form action='/joints' method='POST'>
-  <label for='restaurantName'>Where:</label>
-  <input type='text' name='restaurantName'><br><br>
-  <label for='eatonOn'>When:</label>
-  <input type='date' name='eatenOn'><br><br>
-  <label for='burgerName'>Name of Burger:</label>
-  <input type='text' name='burgerName'><br><br>
-  <label for='typeOfMeat'>Type of Meat:</label>
-  <input type='text' name='typeOfMeat'><br><br>
-  <label for='rating'>Rating: Between 1 and 10</label>
-  <input type='number' name='rating'><br><br>
-  <label for='review'>Review:</label>
-  <input type='text' name='review'><br><br>
-  <label for='burgerPic'>Image:</label>
-  <input type='url' name='burgerPic'><br><br>
-  <button type='submit' name='addBurger'>Add New Burger</button>
-</form> -->

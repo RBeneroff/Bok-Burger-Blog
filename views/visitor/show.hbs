@@ -1,26 +1,32 @@
+<div id='show-page'>
 <br>
+<h1 class='show-burger'>{{burger.burgerName}}</h1>
 <br>
-Name of burger: {{burger.burgerName}}
-<br>
-{{burger.id}}
-<br>
-Where it's from: {{burger.restaurantName}}
-<br>
-<br>
-Image goes here
+<h2 class='show-res'>{{burger.restaurantName}}</h2>
+<h3>Image goes here
 <br><br>
 Rating: {{burger.rating}}
-<br>
-Review: {{burger.review}}
 <br><br>
+Review:
+<br>
+<div class='review-container'>
+{{burger.review}}
+</div>
 
-<a href='/joints'>Back to List<a>
 <br>
 
-<br>
+</h3>
 
+<a class='links' href='/joints'>Back to List<a>
+<br>
 {{#if test}}
-<a href='/{{burger.id}}/edit'>Update Burger<a>
+<a class='links' href='/{{burger.id}}/edit'>Update Burger<a>
 {{else}}
-<a href='/'>HOME</a>
+<!-- <a class='links' href='/'>HOME</a> -->
 {{/if}}
+<br>
+</div>
+
+<!-- <footer>
+  <a id='email' href='/email'>Join the #BokBurgerList email</a>
+</footer> -->

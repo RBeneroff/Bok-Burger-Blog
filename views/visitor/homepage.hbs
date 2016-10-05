@@ -1,22 +1,22 @@
 <div class='viewport-1'></div>
 <footer id='footer'>
-    <p>Welcome {{user.username}}</p>
-    {{#each burger}}
-        {{restaurantName}}
-    {{/each}}
-    <p><a class='hashtag' href='/email'>#BoksBurgerList</a></p>
+    <!-- <p>Welcome {{user.username}}</p> -->
+    <!-- <p><a class='hashtag' href='/email'>#BoksBurgerList</a></p> -->
   {{#if user}}
+<a class='hashtag' href='/email'>#BoksBurgerList</a>
 <div id='footer1'>
   <form method='POST' action="/logout?_method=DELETE" id='logout' >
-  <button type='submit' name='logout'>Log Out</button>
+  <!-- <a class='hashtag' href='/email'>#BoksBurgerList</a> -->
+  <button class='logs' type='submit' name='logout'>Log Out</button>
   </form>
 </div>
   {{else}}
+<a class='hashtag' href='/email'>#BoksBurgerList</a>
 <div id='footer2'>
   <form id='login' method='POST' action='/login'>
-    <input name='username' placeholder='Admin'>
-    <input name='password' type='password' placeholder='password'>
-    <input value='Log In' type='submit'>
+    <input class='log-in' name='username' placeholder='Admin'>
+    <input class='log-in' name='password' type='password' placeholder='password'>
+    <input class='logs' value='Log In' type='submit'>
     {{/if}}
   </div>
   </form>
