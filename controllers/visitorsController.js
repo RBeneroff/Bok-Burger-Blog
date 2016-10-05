@@ -86,26 +86,18 @@ router.get('/register', function(req, res) {
 
 // Index by Restaurant
 router.get('/joints', function(req, res) {
-  var burger = Burger.findOne({_id: req.params.id});
-    console.log(req.user);
-  // res.send('Working? JOINTS');
-  User.findOne({_id: req.params.id}).exec()
-  .then(function(user) {
-    res.render('visitor/indexByRes.hbs', {user: User.findOne({_id: req.params.id}), burger: burger});
-  });
+
+  var burger = Burger.find({}, function(err, burger){
+    res.render('visitor/indexByRes.hbs', { burger: burger});
+  }
+  );
+  // User.findOne({_id: req.params.id}).exec()
+  // .then(function(user) {
+  //   res.render('visitor/indexByRes.hbs', {user: User.findOne({_id: req.params.id}), burger: burger});
+  // });
 });
 
-// router.get('/joints', function(req, res) {
-//     console.log(req.user);
-//   // res.send('Working? JOINTS');
-//   Burger.findOne({_id: req.params.id}).exec()
-//   .then(function(burger) {
-//     res.render('visitor/indexByRes.hbs', {user: Burger.findOne({_id: req.params.id})});
-//   });
-// });
-
 router.get('/about', function(req, res) {
-  // res.send('Working? ABOUT BOK');
   res.render('visitor/about.hbs');
 });
 

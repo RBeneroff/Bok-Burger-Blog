@@ -1,11 +1,11 @@
 // require modules
 var express = require('express');
-var mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/Bok-Burger-Blog');
 var logger = require('morgan');
 var hbs = require('hbs');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/Bok-Burger-Blog');
 var methodOverride = require('method-override');
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
@@ -17,7 +17,7 @@ app.set('view engine', 'hbs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(logger('dev'));
-app.use(methodOverride('method'));
+app.use(methodOverride('_method'));
 app.use(express.static(__dirname + '/public'));
 // specify mongo db:
 var db = mongoose.connection;
