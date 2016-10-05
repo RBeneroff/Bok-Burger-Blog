@@ -141,6 +141,27 @@ router.get('/new', function(req, res) {
 //     res.redirect('/joints');
 //   });
 
+// working code -- except not updating and deleting properly - changes first burger only
+// router.post('/joints', function(req, res) {
+//   // console.log(req.user);
+//   var burgerId = req.params.id;
+//   var burger = new Burger({
+//     restaurantName: req.body.restaurantName,
+//     burgerName: req.body.burgerName,
+//     eatenOn: req.body.eatenOn,
+//     typeOfMeat: req.body.typeOfMeat,
+//     rating: req.body.rating,
+//     review: req.body.review,
+//     burgerPic: req.body.burgerPic
+//   });
+//   console.log(burger.burgerName);
+//   console.log(burger.burgerId);
+//   burger.save(function(err, burger) {
+//     res.redirect('/joints');
+//   });
+// });
+
+// code i'm working on -- fix burger bug
 router.post('/joints', function(req, res) {
   // console.log(req.user);
   var burgerId = req.params.id;
@@ -158,13 +179,6 @@ router.post('/joints', function(req, res) {
   burger.save(function(err, burger) {
     res.redirect('/joints');
   });
-
-  // User.findById(req.params.id, function(err, user) {
-  //   user.burgers.push(new Burger({body: req.body.newBurger}))
-  //   user.save(function(err) {
-  //     res.redirect('/joints');
-  //   })
-  // })
 });
 
 router.get('/burgers', function(req, res) {
@@ -187,17 +201,33 @@ router.get('/:id', function(req, res) {
   });
 });
 
-//updating first one only -- no matter which one you click on
+//updating first one only -- no matter which one you click on // WORKING CODE
+// router.put('/:id', function(req, res) {
+//   console.log(req.params.id);
+//   var burger = Burger.findOneAndUpdate( req.params.id, {
+//     restaurantName: req.body.restaurantName,
+//     burgerName: req.body.burgerName,
+//     eatenOn: req.body.eatenOn,
+//     typeOfMeat: req.body.typeOfMeat,
+//     rating: req.body.rating,
+//     review: req.body.review,
+//     burgerPic: req.body.burgerPic
+//   }, {new: true}, function(err, burger) {
+//     res.render('visitor/show', {burger: burger});
+//   });
+// });
+
+// WORKING UPDATE BURGER ROUTE
 router.put('/:id', function(req, res) {
   console.log(req.params.id);
-  var burger = Burger.findOneAndUpdate( req.params.id, {
-    restaurantName: req.body.restaurantName,
-    burgerName: req.body.burgerName,
-    eatenOn: req.body.eatenOn,
-    typeOfMeat: req.body.typeOfMeat,
-    rating: req.body.rating,
-    review: req.body.review,
-    burgerPic: req.body.burgerPic
+  Burger.findByIdAndUpdate(req.params.id, {
+      restaurantName: req.body.restaurantName,
+      burgerName: req.body.burgerName,
+      eatenOn: req.body.eatenOn,
+      typeOfMeat: req.body.typeOfMeat,
+      rating: req.body.rating,
+      review: req.body.review,
+      burgerPic: req.body.burgerPic
   }, {new: true}, function(err, burger) {
     res.render('visitor/show', {burger: burger});
   });
@@ -209,6 +239,15 @@ router.put('/:id', function(req, res) {
 //     res.redirect('/joints', {burger: burger});
 //   });
 // });
+
+router.delete('/:id', function(req, res) {
+  Burger.findByIdAndRemove(req.params.id,
+    function(err, burger) {
+      if (err) console.log(err);
+      console.log('Burger Deleted');
+      res.redirect('/joints', {burger: burger});
+  });
+});
 
 //would like to move this to ownersController
 router.get('/:id/edit', function(req, res) {
