@@ -61,7 +61,7 @@ var authenticate = function(req, res, next) {
 
 router.get('/', function(req, res) {
   // res.send('Working? HOME');
-  console.log(req.user);
+  // console.log(req.user);
   var query = User.find({});
   query.then(function(users) {
     res.render('visitor/homepage.hbs', { users: users, user: req.user});
@@ -88,7 +88,7 @@ router.get('/register', function(req, res) {
 router.get('/joints', function(req, res) {
   // if (User.username === 'test') {
     var test = User.find({username: 'req.user.username'});
-      console.log(test);
+      // console.log(test);
     // }
   var burger = Burger.find({}, function(err, burger){
     res.render('visitor/indexByRes.hbs', {burger: burger, test: test});
@@ -118,7 +118,7 @@ router.get('/new', function(req, res) {
   // res.send('Working? NEW NEW');
   User.findOne({_id: req.params.id}).exec()
   .then(function(user) {
-        console.log(req.user);
+        // console.log(req.user);
     res.render('visitor/new.hbs', {user: User.findOne({_id: req.params.id})});
   });
 });
@@ -142,7 +142,7 @@ router.get('/new', function(req, res) {
 //   });
 
 router.post('/joints', function(req, res) {
-  console.log(req.user);
+  // console.log(req.user);
   var burgerId = req.params.id;
   var burger = new Burger({
     restaurantName: req.body.restaurantName,
@@ -187,6 +187,29 @@ router.get('/:id', function(req, res) {
   });
 });
 
+//updating first one only -- no matter which one you click on
+router.put('/:id', function(req, res) {
+  console.log(req.params.id);
+  var burger = Burger.findOneAndUpdate( req.params.id, {
+    restaurantName: req.body.restaurantName,
+    burgerName: req.body.burgerName,
+    eatenOn: req.body.eatenOn,
+    typeOfMeat: req.body.typeOfMeat,
+    rating: req.body.rating,
+    review: req.body.review,
+    burgerPic: req.body.burgerPic
+  }, {new: true}, function(err, burger) {
+    res.render('visitor/show', {burger: burger});
+  });
+});
+
+// // delete burger
+// router.delete('/:id', function(req, res) {
+//   var burger = Burger.findById({_id:req.params.id}, function(err, burger){
+//     res.redirect('/joints', {burger: burger});
+//   });
+// });
+
 //would like to move this to ownersController
 router.get('/:id/edit', function(req, res) {
   // res.send('Working? EDIT BURGER');
@@ -199,20 +222,6 @@ router.get('/:id/edit', function(req, res) {
 
     // res.render('visitor/' + req.params.id + '/edit', {burger: burger});
 
-router.put('/:id', function(req, res) {
-  console.log(req.params.id);
-  var burger = Burger.findOneAndUpdate(req.params.id, {
-    restaurantName: req.body.restaurantName,
-    burgerName: req.body.burgerName,
-    eatenOn: req.body.eatenOn,
-    typeOfMeat: req.body.typeOfMeat,
-    rating: req.body.rating,
-    review: req.body.review,
-    burgerPic: req.body.burgerPic
-  }, {new: true}, function(err, burger) {
-    res.render('visitor/show', {burger: burger});
-  });
-});
 
 // emai list sign up update
 router.post('/email', function(req, res) {
@@ -226,6 +235,5 @@ router.post('/email', function(req, res) {
     res.redirect('/joints');
   });
 });
-
 
 module.exports = router;
