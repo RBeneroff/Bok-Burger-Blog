@@ -252,14 +252,14 @@ router.put('/:id', function(req, res) {
 //   });
 // });
 
-//WORKING delete, just not going to the right page now
+//WORKING delete route
 router.delete('/:id', function(req, res) {
   Burger.findByIdAndRemove(req.params.id,
     function(err, burger) {
       if (err) console.log(err);
       console.log('Burger Deleted');
-      // res.redirect('/joints', {burger: burger});
-      res.render('visitor/joints', {burger: burger});
+      res.redirect('/joints');
+      // res.render('visitor/joints', {burger: burger});
   });
 });
 
