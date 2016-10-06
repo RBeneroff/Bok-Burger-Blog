@@ -13,15 +13,15 @@
     <!-- <p>Welcome {{user.username}}</p> -->
     <!-- <p><a class='hashtag' href='/email'>#BoksBurgerList</a></p> -->
   {{#if user}}
-<a class='hashtag' href='/email'>#BoksBurgerList</a>
+<!-- <a class='hashtag' href='/email'>#BoksBurgerList</a> -->
 <div id='footer1'>
   <form method='POST' action="/logout?_method=DELETE" id='logout' >
-  <!-- <a class='hashtag' href='/email'>#BoksBurgerList</a> -->
+  <a class='hashtag' href='/email'>#BokBurgerList</a>
   <button class='logs' type='submit' name='logout'>Log Out</button>
   </form>
 </div>
   {{else}}
-<a class='hashtag' href='/email'>#BoksBurgerList</a>
+<a class='hashtag' href='/email'>#BokBurgerList</a>
 <div id='footer2'>
   <form id='login' method='POST' action='/login'>
     <input class='log-in' name='username' placeholder='Admin'>

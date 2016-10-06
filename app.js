@@ -5,7 +5,9 @@ var hbs = require('hbs');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/Bok-Burger-Blog');
+// mongoose.connect('mongodb://localhost/Bok-Burger-Blog');
+var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/Bok-Burger-Blog';
+mongoose.connect(mongoURI);
 var methodOverride = require('method-override');
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
@@ -53,4 +55,4 @@ app.use('/', require('./controllers/visitorsController.js'));
 // app.use('/new', require('./controllers/ownersController.js'));
 
 // instantiate node server:
-app.listen(3000);
+app.listen(process.env.PORT || 3000);

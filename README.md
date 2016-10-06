@@ -1,7 +1,6 @@
 # Bok-Burger-List
 Unit 2 Project - burger blog for a friend
 
-
 List to do:
 - image database
 - fill up burgers database (index by Res and index by Img)
