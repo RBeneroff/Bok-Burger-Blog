@@ -1,3 +1,5 @@
+require('dotenv').config();
+var AWS = require('aws-sdk');
 // require modules
 var express = require('express');
 var logger = require('morgan');
@@ -56,3 +58,8 @@ app.use('/', require('./controllers/visitorsController.js'));
 
 // instantiate node server:
 app.listen(process.env.PORT || 3000);
+
+
+console.log(process.env.S3_BUCKET_NAME);
+console.log(process.env.AWS_ACCESS_KEY_ID);
+console.log(process.env.AWS_SECRET_ACCESS_KEY);
