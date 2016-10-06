@@ -1,38 +1,35 @@
 <div class='viewport'></div>
-<header>
-    <div class="container2">
-      <a class ='nav2' href="/">Home</a>
-      <a class ='nav2' href="/joints">List of  Restaurants</a>
-      <a class ='nav2' href="/burgers">All Posts</a>
-      <a class ='nav2' href="/about">About Bok</a>
-</div>
-</header>
+  <header>
+      <div class="container2">
+        <a class ='nav2' href="/">Home</a>
+        <a class ='nav2' href="/joints">List of  Restaurants</a>
+        <a class ='nav2' href="/burgers">All Posts</a>
+        <a class ='nav2' href="/about">About Bok</a>
+      </div>
+  </header>
 
 <div id='show-page'>
-<h1 class='show-burger'>{{burger.burgerName}}</h1>
+  <h1 class='show-burger'>{{burger.burgerName}}</h1>
 <br>
-<h2 class='show-res'>{{burger.restaurantName}}</h2>
-<h3>Image goes here
+      <h2 class='show-res'>{{burger.restaurantName}}</h2>
+        <h3>Image goes here</h3>
+          <p>Rating: {{burger.rating}}
 <br><br>
-Rating: {{burger.rating}}
-<br><br>
-Review:
+          Review:
 <br>
-<div class='review-container'>
-{{burger.review}}
-</div>
-
+            <div class='review-container'>
+              {{burger.review}}
+            </div>
+          </p>
 <br>
 
-</h3>
-
-<a class='links' href='/joints'>Back to List<a>
+  <a class='links' href='/joints'>Back to List<a>
 <br>
-{{#if test}}
-<a class='links' href='/{{burger.id}}/edit'>Update Burger<a>
-{{else}}
-<!-- <a class='links' href='/'>HOME</a> -->
-{{/if}}
+  {{#if test}}
+  <a class='links' href='/{{burger.id}}/edit'>Update Burger<a>
+  {{else}}
+  <!-- <a class='links' href='/'>HOME</a> -->
+  {{/if}}
 <br>
 </div>
 
