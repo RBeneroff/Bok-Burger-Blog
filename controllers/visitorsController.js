@@ -199,6 +199,7 @@ router.post('/joints', function(req, res) {
   console.log(burger.burgerName);
   console.log(burger.burgerId);
   burger.save(function(err, burger) {
+    console.log(error);
     res.redirect('/joints');
   });
 });
