@@ -38,8 +38,8 @@ passport.deserializeUser(User.deserializeUser());
 //controllers
 // var ownersController = require('./controllers/ownersController.js');
 // app.use('/owner', ownersController);
-var visitorsController = require('./controllers/visitorsController.js');
-app.use('/visitor', visitorsController);
+// var visitorsController = require('./controllers/visitorsController.js');
+// app.use('/visitor', visitorsController);
 
 // save connection to db
 db.on('error', function(err) {
