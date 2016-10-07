@@ -5,17 +5,7 @@
   </head>
 
   <body>
-    <form action="https://s3-bucket.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
-      <input type="hidden" name="key" value="uploads/${filename}">
-      <input type="hidden" name="AWSAccessKeyId" value="AWS_ACCESS_KEY">
-      <input type="hidden" name="acl" value="private">
-      <input type="hidden" name="success_action_redirect" value="http://localhost/:3000">
-      <input type="hidden" name="policy" value="ew0KCSJWZXJzaW9uIjogIjIwMTItMTAtMTciLA0KCSJJZCI6ICJQb2xpY3kxNDc1Nzg1NDcyNjI2IiwNCgkiU3RhdGVtZW50IjogWw0KCQl7DQoJCQkiU2lkIjogIlN0bXQxNDc1Nzg1NDY0ODg2IiwNCgkJCSJFZmZlY3QiOiAiQWxsb3ciLA0KCQkJIlByaW5jaXBhbCI6IHsNCgkJCQkiQVdTIjogImFybjphd3M6aWFtOjowNDM3MTg1OTkwMjA6dXNlci9BZG1pbiINCgkJCX0sDQoJCQkiQWN0aW9uIjogWw0KCQkJCSJzMzpQdXRPYmplY3QiLA0KCQkJCSJzMzpQdXRPYmplY3RBY2wiDQoJCQldLA0KCQkJIlJlc291cmNlIjogImFybjphd3M6czM6Ojpib2tidXJnZXJsaXN0LyoiDQoJCX0NCgldDQp9">
-      <input type="hidden" name="signature" value="YOUR_CALCULATED_SIGNATURE">
-      <input type="hidden" name="Content-Type" value="image/jpeg">
-      <!-- Include any additional input fields here -->
-
-      File to upload to S3:
+    <form action="/addImage" method="post" enctype="multipart/form-data">
       <input name="file" type="file">
       <br>
       <input type="submit" value="Upload File to S3">

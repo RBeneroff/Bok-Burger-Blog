@@ -145,6 +145,37 @@ router.get('/new', function(req, res) {
   });
 });
 
+//S3 stuff
+router.get('/imageUpload', (req, res) => {
+  const s3 = new aws.S3();
+  const fileName = req.query['file-name'];
+  const fileType = req.query['file-type'];
+  const s3Params = {
+    Bucket: S3_BUCKET_NAME,
+    Key: fileName,
+    Expires: 60,
+    ContentType: fileType,
+    ACL: 'public-read'
+  };
+
+  s3.getSignedUrl('putObject', s3Params, (err, data) => {
+    if(err){
+      console.log(err);
+      return res.end();
+    }
+    const returnData = {
+      signedRequest: data,
+      url: `https://${S3_BUCKET_NAME}.s3.amazonaws.com/${fileName}`
+    };
+    res.write(JSON.stringify(returnData));
+    res.end();
+  });
+});
+
+router.post('/save-details', (req, res) => {
+  // todo: Read POSTed form data and do something useful
+});
+
 // update/create burgers
 // router.post('/joints', function(req, res) {
 //   console.log(req.user);
@@ -237,6 +268,7 @@ router.get('/:id', function(req, res) {
     res.render('visitor/show.hbs', { burger: burger, user: user, test: test});
   });
 });
+
 
 //updating first one only -- no matter which one you click on // WORKING CODE
 // router.put('/:id', function(req, res) {
