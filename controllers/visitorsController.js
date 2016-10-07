@@ -186,7 +186,7 @@ router.get('/new', function(req, res) {
 // code i'm working on -- fix burger bug
 router.post('/joints', function(req, res) {
   // console.log(req.user);
-  var burgerId = req.params.id;
+  // var burgerId = req.params.id;
   var burger = new Burger({
     restaurantName: req.body.restaurantName,
     burgerName: req.body.burgerName,
@@ -197,7 +197,7 @@ router.post('/joints', function(req, res) {
     burgerPic: req.body.burgerPic
   });
   console.log(burger.burgerName);
-  console.log(burger.burgerId);
+  // console.log(burger.burgerId);
   burger.save(function(err, burger) {
     console.log(err);
     res.redirect('/joints');
