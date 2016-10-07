@@ -21,9 +21,6 @@ var EmailSchema = new Schema({
   email: String
 });
 
-// BurgerSchema.plugin(require('passport-local-mongoose'));
-// EmailSchema.plugin(require('passport-local-mongoose'));
-
 var BurgerModel = mongoose.model('Burger', BurgerSchema);
 var EmailModel = mongoose.model('Email', EmailSchema);
 
