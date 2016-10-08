@@ -2,6 +2,7 @@
 var express = require('express');
 var logger = require('morgan');
 var hbs = require('hbs');
+var handlebarsFormHelpers = require('handlebars-form-helpers').register(hbs.handlebars);
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
@@ -34,6 +35,7 @@ app.use(passport.session());
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
 
 //controllers
 // var ownersController = require('./controllers/ownersController.js');

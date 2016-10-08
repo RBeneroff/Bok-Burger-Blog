@@ -1,27 +1,22 @@
 <header id='home-header'>
-  <!-- <h1>Bok's Burger List</h1> -->
     <div class="container">
       <a class ='nav' href="/">Home</a>
       <a class ='nav' href="/joints">List of  Restaurants</a>
       <a class ='nav' href="/burgers">All Posts</a>
       <a class ='nav' href="/about">About Bok</a>
-</div>
+    </div>
 </header>
 
 <div class='viewport-1'></div>
 <footer class='footer'>
-    <!-- <p>Welcome {{user.username}}</p> -->
-    <!-- <p><a class='hashtag' href='/email'>#BoksBurgerList</a></p> -->
+  <a class='hashtag' href='/email'>#BokBurgerList</a>
   {{#if user}}
-<!-- <a class='hashtag' href='/email'>#BoksBurgerList</a> -->
 <div id='footer1'>
   <form method='POST' action="/logout?_method=DELETE" id='logout' >
-  <a class='hashtag' href='/email'>#BokBurgerList</a>
   <button class='logs' type='submit' name='logout'>Log Out</button>
   </form>
 </div>
   {{else}}
-<a class='hashtag' href='/email'>#BokBurgerList</a>
 <div id='footer2'>
   <form id='login' method='POST' action='/login'>
     <input class='log-in' name='username' placeholder='Admin'>
@@ -31,3 +26,4 @@
   </div>
   </form>
 </footer>
+</div>

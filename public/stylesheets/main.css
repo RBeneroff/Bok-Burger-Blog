@@ -1,3 +1,50 @@
+/*body {
+  height: 1000px;
+}*/
+
+.map {
+  display: flex;
+  justify-content: center;
+}
+
+.index-by-img {
+  overflow:hidden;
+}
+
+.index-by-img img {
+  cursor: pointer;
+  -webkit-transition:opacity 0.26s ease-out;
+  -moz-transition:opacity 0.26s ease-out;
+  -ms-transition:opacity 0.26s ease-out;
+  -o-transition:opacity 0.26s ease-out;
+  transition:opacity 0.26s ease-out;
+}
+
+.index-by-img:hover img {
+  opacity: 0.6;
+}
+
+.index-by-img:hover img:hover {
+  opacity: 1;
+}
+
+.img {
+  border-radius: 1em;
+  zoom: .4;
+  padding: 2vh;
+  justify-content: center;
+}
+
+.imgwrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#burger-pic {
+  zoom: .6;
+  border-radius: 1em;
+}
+
 .links {
   text-decoration: none;
   color: #601a10;
@@ -83,7 +130,7 @@
   padding: 10px 70px 10px 70px;
   /*margin-left: 20px;
   margin-right: 20px;*/
-  text-align: left;
+  text-align: center;
 }
 
 #show-page {
@@ -92,6 +139,10 @@
 
 .show-res {
   margin-top: -40px;
+}
+
+#date {
+  margin-top: -10px;
 }
 
 label {
@@ -160,11 +211,11 @@ form.email-list select {
   color: #231f20;
 }*/
 
-h1 {
+/*h1 {
   text-align: center;
   font-family: Caviar Dreams;
   font-size: 5vh;
-}
+}*/
 
 ul {
   list-style-type: none;
@@ -198,19 +249,26 @@ ul {
 .viewport-1 {
   background-size: cover;
   background-image: url('../images/burger1-10.png');
-  height: 75vh;
+  height: 79vh;
   border-radius: 0.5em;
+  background-position: -2vw 0;
+  /*margin: 0;*/
 }
 
 .viewport-1:hover {
   background-size: cover;
   background-image: url('../images/burger2-12.png');
-  height: 75vh;
+  height: 79vh;
   border-radius: 0.5em;
 }
 
 #jayme {
   border-radius: 0.5em;
+}
+
+#jayme-con {
+  display: flex;
+  justify-content: center;
 }
 
 #welcome {
@@ -259,7 +317,8 @@ ul {
   src: url('../fonts/CaviarDreams copy.ttf');
 }
 
-#email {
+#email,
+#show {
   display: flex;
   justify-content: flex-end;
   background: #231f20;
@@ -267,6 +326,13 @@ ul {
   font-family: Arial Black;
   font-size: 1.5vh;
   padding: 2vh;
+}
+
+.show-link {
+    text-decoration: none;
+    color: white;
+    border-radius: 0.5em;
+    margin: 0 10px 0 10px;
 }
 
 #footer1 {
