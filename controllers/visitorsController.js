@@ -7,7 +7,7 @@ var Schema = require('../models/schema.js');
 var Burger = require('../models/schema.js').Burger;
 var Email = Schema.Email
 
-//for Admin -- must hard code later
+//for Admin
 router.post('/register', function(req, res) {
   // console.log(req.user);
   User.register(
@@ -77,21 +77,6 @@ router.get('/register', function(req, res) {
   res.render('visitor/adminSignUp.hbs');
 });
 
-// router.get('/joints', function(req, res) {
-//   var user = User.findById({id: req.params.id});
-//     // console.log(req.user);
-//   // res.send('Working? JOINTS');
-//     res.render('visitor/indexByRes.hbs', user);
-// });
-
-// Index by Restaurant //WORKING CODE
-// router.get('/joints', function(req, res) {
-//     var user = User.find({username: 'req.user.username'});
-//   var burger = Burger.find({}, function(err, burger){
-//     res.render('visitor/indexByRes.hbs', {burger: burger, user: user});
-//   });
-// });
-
 //index by Res WORKING CODE
 router.get('/joints', function(req, res) {
   console.log(req.user);
@@ -99,19 +84,7 @@ router.get('/joints', function(req, res) {
   if (req.user) {
     // console.log(req.user.username);
     var test = User.findOne({username: req.user.username});
-      // console.log('test var is: ', test);
     }
-    // console.log(req.params.id);
-
-    // var alphabetize = Burger.sort(function(a, b) {
-    //   var nA = a.restaurantName.toUpperCase();
-    //   var nB = b.restaurantName.toUpperCase();
-    //   if (nA < nB)
-    //     return -1;
-    //     else if (nA > nB)
-    //     return 1;
-    //   return 0;
-    // });
 
   var burger = Burger.find({}, null, {sort: {restaurantName: 1}}, function(err, burger){
     res.render('visitor/indexByRes.hbs', {burger: burger, user: user, test: test});
@@ -121,15 +94,6 @@ router.get('/joints', function(req, res) {
 router.get('/about', function(req, res) {
   res.render('visitor/about.hbs');
 });
-
-// router.get('/joints', function(req, res) {
-//   var test = User.findOne({username: 'test'})
-//   .then(function() {
-//     var burger = Burger.find({}, function(err, burger){
-//       console.log(test);
-//       res.render('visitor/indexByRes.hbs', {burger: burger, test: test});
-//     })});
-// });
 
 router.get('/about', function(req, res) {
   res.render('visitor/about.hbs');
@@ -145,45 +109,7 @@ router.get('/new', function(req, res) {
   });
 });
 
-// update/create burgers
-// router.post('/joints', function(req, res) {
-//   console.log(req.user);
-//   var burgerId = req.params.id;
-//   var burger = new Burger({
-//     restaurantName: req.body.restaurantName,
-//     burgerName: req.body.burgerName,
-//     eatenOn: req.body.eatenOn,
-//     typeOfMeat: req.body.typeOfMeat,
-//     rating: req.body.rating,
-//     review: req.body.review,
-//     burgerPic: req.body.burgerPic
-//   });
-//   console.log(burger.burgerName);
-//   burger.save(function(err, burger) {
-//     res.redirect('/joints');
-//   });
-
-// working code -- except not updating and deleting properly - changes first burger only
-// router.post('/joints', function(req, res) {
-//   // console.log(req.user);
-//   var burgerId = req.params.id;
-//   var burger = new Burger({
-//     restaurantName: req.body.restaurantName,
-//     burgerName: req.body.burgerName,
-//     eatenOn: req.body.eatenOn,
-//     typeOfMeat: req.body.typeOfMeat,
-//     rating: req.body.rating,
-//     review: req.body.review,
-//     burgerPic: req.body.burgerPic
-//   });
-//   console.log(burger.burgerName);
-//   console.log(burger.burgerId);
-//   burger.save(function(err, burger) {
-//     res.redirect('/joints');
-//   });
-// });
-
-// code i'm working on -- fix burger bug
+// update burger
 router.post('/joints', function(req, res) {
   // console.log(req.user);
   // var burgerId = req.params.id;
@@ -215,17 +141,8 @@ router.get('/email', function(req, res) {
   res.render('visitor/email.hbs');
 });
 
-// working show page
-// router.get('/:id', function(req, res) {
-//   // res.send('Working? SHOW BURGER');
-//     console.log(req.params.id); //grabs id
-//     // console.log(req.burger.id);
-//   var burger = Burger.findById({_id:req.params.id}, function(err, burger){
-//     res.render('visitor/show.hbs', { burger: burger});
-//   });
-// });
 
-// WORKING show page, with burgers & if Admin
+// show page, with burgers & if Admin
 router.get('/:id', function(req, res) {
     console.log(req.params.id); //grabs id
     var user = User.findById({id: req.params.id});
@@ -238,23 +155,6 @@ router.get('/:id', function(req, res) {
     res.render('visitor/show.hbs', { burger: burger, user: user, test: test});
   });
 });
-
-//updating first one only -- no matter which one you click on // WORKING CODE
-// router.put('/:id', function(req, res) {
-//   console.log(req.params.id);
-//   var burger = Burger.findOneAndUpdate( req.params.id, {
-//     restaurantName: req.body.restaurantName,
-//     burgerName: req.body.burgerName,
-//     eatenOn: req.body.eatenOn,
-//     typeOfMeat: req.body.typeOfMeat,
-//     rating: req.body.rating,
-//     review: req.body.review,
-//     burgerPic: req.body.burgerPic
-//   }, {new: true}, function(err, burger) {
-//     res.render('visitor/show', {burger: burger});
-//   });
-// });
-
 
 // WORKING UPDATE BURGER ROUTE
 router.put('/:id', function(req, res) {
@@ -276,25 +176,7 @@ router.put('/:id', function(req, res) {
   });
 });
 
-// // delete burger --not working
-// router.delete('/:id', function(req, res) {
-//   var burger = Burger.findById({_id:req.params.id}, function(err, burger){
-//     res.redirect('/joints', {burger: burger});
-//   });
-// });
-
-//delete route -- not working
-// router.delete('/:id', function(req, res) {
-//   Burger.findByIdAndRemove(req.params.id,
-//     function(err, burger) {
-//       if (err) console.log(err);
-//       console.log('Burger Deleted');
-//       res.redirect('/joints', {burger: burger});
-//       // res.render('visitor/joints', {burger: burger});
-//   });
-// });
-
-//WORKING delete route
+// delete route
 router.delete('/:id', function(req, res) {
   Burger.findByIdAndRemove(req.params.id,
     function(err, burger) {
@@ -314,8 +196,6 @@ router.get('/:id/edit', function(req, res) {
     res.render('visitor/edit', {burger: burger});
   });
 });
-
-    // res.render('visitor/' + req.params.id + '/edit', {burger: burger});
 
 
 // emai list sign up update
