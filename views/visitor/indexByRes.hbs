@@ -5,28 +5,25 @@
       <a class ='nav2' href="/joints">List of  Restaurants</a>
       <a class ='nav2' href="/burgers">All Posts</a>
       <a class ='nav2' href="/about">About Bok</a>
-</div>
+    </div>
 </header>
 
 <div class='index-by-res'>
 <h2>List of Places:</h2>
-
-<ul>
-  {{#each burger}}
-  <li>
-    <a class='indexList' href='/{{_id}}'>
-      <span id='list-spacing'>{{restaurantName}}</span>
-    </a>
-  </li>
-  {{/each}}
-</ul>
-<br>
-  {{#if test}}
-  <a class='links' href='/new'>Add Another Burger<a>
-  {{else}}
-  <!-- <a class='links' href='/'>HOME</a> -->
-  {{/if}}
-
+  <ul>
+    {{#each burger}}
+    <li>
+      <a class='indexList' href='/{{_id}}'>
+        <span id='list-spacing'>{{restaurantName}}</span>
+      </a>
+    </li>
+    {{/each}}
+  </ul>
+  <br>
+    {{#if test}}
+    <a class='links' href='/new'>Add Another Burger<a>
+    {{else}}
+    {{/if}}
 </div>
 
 <footer class='footer'>

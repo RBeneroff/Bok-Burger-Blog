@@ -6,24 +6,23 @@
       <a class ='nav' href="/about">About Bok</a>
     </div>
 </header>
-
-<div class='viewport-1'></div>
-<footer class='footer'>
-  <a class='hashtag' href='/email'>#BokBurgerList</a>
-  {{#if user}}
-<div id='footer1'>
-  <form method='POST' action="/logout?_method=DELETE" id='logout' >
-  <button class='logs' type='submit' name='logout'>Log Out</button>
-  </form>
-</div>
-  {{else}}
-<div id='footer2'>
-  <form id='login' method='POST' action='/login'>
-    <input class='log-in' name='username' placeholder='Admin'>
-    <input class='log-in' name='password' type='password' placeholder='password'>
-    <input class='logs' value='Log In' type='submit'>
-    {{/if}}
+  <div class='viewport-1'></div>
+    <footer class='footer'>
+      <a class='hashtag' href='/email'>#BokBurgerList</a>
+      {{#if user}}
+        <div id='footer1'>
+          <form method='POST' action="/logout?_method=DELETE" id='logout' >
+          <button class='logs' type='submit' name='logout'>Log Out</button>
+          </form>
+        </div>
+      {{else}}
+    <div id='footer2'>
+      <form id='login' method='POST' action='/login'>
+        <input class='log-in' name='username' placeholder='Admin'>
+        <input class='log-in' name='password' type='password' placeholder='password'>
+        <input class='logs' value='Log In' type='submit'>
+        {{/if}}
+      </form>
+    </div>
+    </footer>
   </div>
-  </form>
-</footer>
-</div>
