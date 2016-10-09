@@ -7,8 +7,7 @@ Burger Database:
   burgerPic: URL,
   rating: Number,
   review: String,
-  postedAt: Date (moment-timezone) - or else just have a form field that can put the date, so every time its updated, or created the date can change there?
-  updatedAt: Date (moment-timezone)
+  eatenOn: Date (moment-timezone)
 
 User Database:
   username: String,
