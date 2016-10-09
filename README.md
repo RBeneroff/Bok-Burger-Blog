@@ -22,10 +22,10 @@ Unresolved Problems:
 - Amazon S3 database use for images
 
 Original User Story/Wireframes:
-http://i.imgur.com/TZFch7n.png
-http://i.imgur.com/X1e1vg4.png
-http://i.imgur.com/H7xC6j5.png
-http://i.imgur.com/TRna9dq.png (updated one in Specs folder)
-http://i.imgur.com/1Mw2q37.png
-http://i.imgur.com/uEMF07l.png
-Specs of each page in Specs folder as well as details for User Story in Issues
+- http://i.imgur.com/TZFch7n.png
+- http://i.imgur.com/X1e1vg4.png
+- http://i.imgur.com/H7xC6j5.png
+- http://i.imgur.com/TRna9dq.png (updated one in Specs folder)
+- http://i.imgur.com/1Mw2q37.png
+- http://i.imgur.com/uEMF07l.png
+- Specs of each page in Specs folder as well as details for User Story in Issues
