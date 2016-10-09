@@ -1,3 +1,4 @@
+  <!-- <h1 class="name">Bok's Burger Blog</h1> -->
 <div class='viewport'></div>
   <header>
       <div class="container2">
@@ -7,55 +8,29 @@
         <a class ='nav2' href="/about">About Bok</a>
       </div>
   </header>
-
+<div class='viewport3'></div>
 <div id='show-page'>
-  <h1 class='show-burger'>{{burger.burgerName}}</h1>
-  <br>
-      <h2 class='show-res'>{{burger.restaurantName}}</h2>
-      <h4 id='date'>{{burger.eatenOn}}<h4>
-          <img id='burger-pic' src="{{burger.burgerPic}}">
-          <p>Rating: {{burger.rating}} out of 10
-          <br>
-            <div class='review-container'>
-              {{burger.review}}
-            </div>
-          </p>
-
+  <div class='col'>
+    <img id='burger-pic' src="{{burger.burgerPic}}">
+  </div>
+  <div class='col'>
+    <h1 id='show-burger'>{{burger.burgerName}}</h1>
+    <h2 class='show-res'>{{burger.restaurantName}}</h2>
+    <h4 id='date'>{{burger.eatenOn}}<h4>
+      <p>Rating: {{burger.rating}} out of 10
+      <br>
+        <div class='review-container'>
+          {{burger.review}}
+        </div>
+      </p>
+  </div>
 </div>
 
 <div class='map'>
-  <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDjB03DwhFACmLA7WGT9ulBGfqfjxFy9T0'></script><div style='overflow:hidden;height:326px;width:520px;'><div id='gmap_canvas' style='height:326px;width:520px;'></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div> <a href='https://embedmaps.net'>embed google map on website</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=858dc55d1e52211525a82685784369a24c8bff91'></script><script type='text/javascript'>function init_map(){var myOptions = {zoom:14,center:new google.maps.LatLng(40.7650225,-73.96760440000003),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(40.7650225,-73.96760440000003)});infowindow = new google.maps.InfoWindow({content:'<strong>Vaucluse NYC</strong><br>100 East 63rd Street<br>10065 New York City<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);
+  <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDjB03DwhFACmLA7WGT9ulBGfqfjxFy9T0'></script><div style='overflow:hidden;height:300px;width:800px;'><div id='gmap_canvas' style='height:300px;width:800px;'></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div> <a href='https://embedmaps.net'>embed google map on website</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=19470f1675c74234d3085bb608fa0f5335c6ae3d'></script><script type='text/javascript'>function init_map(){var myOptions = {zoom:12,center:new google.maps.LatLng(40.7650225,-73.96760440000003),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(40.7650225,-73.96760440000003)});infowindow = new google.maps.InfoWindow({content:'<strong>Vaucluse NYC</strong><br>100 East 63rd Street<br>10065 New York City<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);
   </script>
 </div>
 <br><br>
-
-<!-- <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script> -->
-
-<!-- <div class='share'>
-  <div class="fb-share-button" data-href="http://localhost:3000/57f45d4f4c09e016fd2cc5da" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2F57f45d4f4c09e016fd2cc5da&amp;src=sdkpreparse">Share</a></div>
-</div>
-<br>
-<a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site http://www.website.com."
-   title="Share by Email">
-  <img src="http://png-2.findicons.com/files/icons/573/must_have/48/mail.png">
-</a><br>
-<a class="twitter-share-button"
-  href="https://twitter.com/share"
-  data-size="large"
-  data-url="https://dev.twitter.com/web/tweet-button"
-  data-via="twitterdev"
-  data-related="twitterapi,twitter"
-  data-hashtags="example,demo"
-  data-text="custom share text">
-Tweet
-</a> -->
 
 <footer class='long-footer' id='show'>
   <a class='show-link' href='/joints'>Back to List<a>

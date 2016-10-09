@@ -7,9 +7,14 @@
       <a class ='nav2' href="/about">About Bok</a>
     </div>
 </header>
-
+<div class='viewport-3'>
 <div class='index-by-res'>
-<h2>List of Places:</h2>
+<h2 id='places'>Bok's Restaurants:</h2>
+{{#if test}}
+<a class='links' href='/new'>Add Another Burger<a><br>
+{{else}}
+{{/if}}
+<br>
   <ul>
     {{#each burger}}
     <li>
@@ -20,12 +25,8 @@
     {{/each}}
   </ul>
   <br>
-    {{#if test}}
-    <a class='links' href='/new'>Add Another Burger<a>
-    {{else}}
-    {{/if}}
 </div>
-
+</div>
 <footer class='footer'>
   <a class='links' id='email' href='/email'>Join the #BokBurgerList email</a>
 </footer>
