@@ -226,6 +226,9 @@ form.email-list select {
   color: #231f20;
 }*/
 
+#show-burger {
+  margin-top: -1vh;
+}
 
 ul {
   list-style-type: none;
