@@ -1,3 +1,7 @@
+#inbox {
+  margin-top: -2.3vh;
+}
+
 #places {
   margin-bottom: -.5vh;
 }
@@ -119,11 +123,6 @@
   padding: 5vh 8vw 5vh 8vw;
 }
 
-/*#list-spacing {
-  margin: 10vh 0;
-  padding: 10vh 0 0 0;
-}*/
-
 .review-container {
   /*color: blue;*/
   /*padding: 10px 70px 10px 70px;
@@ -217,15 +216,6 @@ form.email-list select {
   border: 1px solid #601a10;
 }
 
-/*.headers {
-  background: #231f20;
-  color: white;
-}*/
-
-/*#home-header {
-  color: #231f20;
-}*/
-
 #show-burger {
   margin-top: -1vh;
 }
@@ -248,16 +238,6 @@ ul {
 .index-by-res {
   text-align: center;
 }
-
-/*p {
-  display: flex;
-  justify-content: flex-start;
-  color: #601a10;
-}*/
-
-/*#header {
-  font-family: Caviar Dreams;
-}*/
 
 .name {
   font-family: Caviar Dreams;
@@ -304,12 +284,6 @@ ul {
 #welcome {
   color:white;
 }
-
-/*#logo {
-  display: flex;
-  justify-content: flex-start;
-  /*background: url(images/BokLogo.png) no-repeat 0 0;*/
-/*}*/
 
 .container2 {
   display: flex;
@@ -405,13 +379,6 @@ body {
 #emailPage {
   text-align: center;
 }
-
-/*input[class=email] {
-  border: 1px solid #601a10;
-  background-color: white;
-  padding: 1vh;
-  width: 30vw;
-}*/
 
 .footer {
   position: absolute;

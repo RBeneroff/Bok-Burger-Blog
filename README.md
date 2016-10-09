@@ -7,9 +7,7 @@ Github link: https://github.com/RBeneroff/Bok-Burger-Blog
 List to do:
 - about page
 - email list - thank you
-- email: we deliver. right to your inbox (make change)
 - edit show page to look better (type of meat)
-- delete unused photos
 
 Created a burger blog for a friend who prides himself on his Instagram burger pictures. This is a simple blog that allows  the Admin to log in and post, edit, update and delete burgers. The visitor can view the posts by restaurant name or by burger picture (two index pages). If you enjoy Bok's Burger List, you can choose to sign up and receive an email every time a new burger is rated.
 
