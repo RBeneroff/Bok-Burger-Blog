@@ -1,3 +1,9 @@
+#about-con {
+  padding: 10px 70px 10px 70px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 #inbox {
   margin-top: -2.3vh;
 }
@@ -124,7 +130,6 @@
 }
 
 .review-container {
-  /*color: blue;*/
   /*padding: 10px 70px 10px 70px;
   /*margin-left: 20px;
   margin-right: 20px;*/
